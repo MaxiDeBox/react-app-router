@@ -5,8 +5,8 @@ import './Car.scss'
 const Car = props => {
   return (
     <div className={'Car'}>
-      <h3>Сar name: {props.name}</h3>
-      <p>Year: <strong>{props.year}</strong></p>
+      <h3>Название машины: {props.name}</h3>
+      <p>Год: <strong>{props.year}</strong></p>
     </div>
   )
 }
