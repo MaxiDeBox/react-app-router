@@ -15,17 +15,22 @@ function App() {
           <li>
             <a href="/about">About</a>
           </li>
+          <li>
+            <a href="/cars">Машины</a>
+          </li>
         </ul>
       </nav>
 
       <hr/>
       <Routes>
         <Route exact path="/" element={<h1>Home Page</h1>} />
+        <Route path="/about" element={<About />} />
+        <Route path="/cars" element={<Cars />} />
       </Routes>
 
-      <About />
+      {/*<About />*/}
 
-      <Cars />
+      {/*<Cars />*/}
     </div>
   );
 }
