@@ -10,13 +10,25 @@ function App() {
       <nav className="nav">
         <ul>
           <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink
+              exact
+              to="/"
+              activeClassName={'wfm-active'}
+            >Home</NavLink>
           </li>
           <li>
-            <NavLink to="/about">About</NavLink>
+            <NavLink exact
+                     to="/about"
+                     activeStyle={{
+                       color: 'blue'
+                     }}>About</NavLink>
           </li>
           <li>
-            <NavLink to="/cars">Cars</NavLink>
+            <NavLink to={{
+              pathname: '/cars',
+              search: '?a=1&b=2',
+              hash: 'wfm-hash'
+            }}>Cars</NavLink>
           </li>
         </ul>
       </nav>
@@ -24,8 +36,8 @@ function App() {
       <hr/>
       <Routes>
         <Route exact path="/" element={<h1>Home Page</h1>} />
-        <Route path="/about" element={<About />} />
-        <Route path="/cars" element={<Cars />} />
+        <Route exact path="/about" element={<About />} />
+        <Route exact path="/cars" element={<Cars />} />
       </Routes>
 
       {/*<About />*/}
