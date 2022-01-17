@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './App.scss'
 import About from './About/About'
 import Cars from './Cars/Cars'
@@ -6,6 +6,16 @@ import {Route, Routes, NavLink, Switch, Redirect} from "react-router-dom";
 import CarDetail from "./CarDetail/CarDetail";
 
 function App() {
+  const [state, setState] = useState({
+    isLogged: false
+  });
+
+  const loginHandle = () => {
+    setState({
+      isLogged: !state.isLogged
+    });
+  };
+
   return (
     <div>
       <nav className="nav">
@@ -33,10 +43,15 @@ function App() {
         </ul>
       </nav>
 
-      <hr/>
+      <hr />
+      <div style={{textAlign: 'center'}}>
+        <h3>Is logged in: {state.isLogged ? 'TRUE' : 'FALSE'}</h3>
+        <button onClick={loginHandle}>Login</button>
+      </div>
+      <hr />
       <Routes>
         <Route path="/" element={<h1>Home Page</h1>} />
-        <Route path="/about" element={<About />} />
+        { state.isLogged ? <Route path="/about" element={<About />} /> : null }
         <Route path="/cars" element={<Cars />} />
         <Route path="/cars/:name" element={<CarDetail />} />
         <Route path='*' element={<h1>404 Not found</h1>} />
