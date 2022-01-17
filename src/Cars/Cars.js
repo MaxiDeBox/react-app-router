@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Car from './Car/Car'
+import { useNavigate } from "react-router-dom";
 
 export default class Cars extends Component {
   state = {
@@ -15,8 +16,11 @@ export default class Cars extends Component {
       <div style={{
         width: 400,
         margin: 'auto',
-        paddingTop: '20px'
+        paddingTop: '20px',
+        textAlign: 'center'
       }}>
+        <GoHome />
+        <hr/>
         {this.state.cars.map((car, index) => {
           return (
             <Car
@@ -29,4 +33,14 @@ export default class Cars extends Component {
       </div>
     )
   }
+}
+
+function GoHome(props) {
+  let navigate = useNavigate();
+  let goToHomePage = () => {
+    navigate({
+      pathname: '/'
+    });
+  } ;
+  return (<button onClick={goToHomePage}>Go to home page</button>);
 }
