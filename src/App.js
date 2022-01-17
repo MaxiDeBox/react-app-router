@@ -11,23 +11,22 @@ function App() {
         <ul>
           <li>
             <NavLink
-              exact
+              exact="true"
               to="/"
-              activeClassName={'wfm-active'}
+              className={({ isActive }) => isActive? 'wfm-active': ''}
             >Home</NavLink>
           </li>
           <li>
-            <NavLink exact
-                     to="/about"
-                     activeStyle={{
-                       color: 'blue'
-                     }}>About</NavLink>
+            <NavLink
+              exact="true"
+              to="/about"
+              style={{
+                color: 'blue'
+              }}>About</NavLink>
           </li>
           <li>
             <NavLink to={{
               pathname: '/cars',
-              search: '?a=1&b=2',
-              hash: 'wfm-hash'
             }}>Cars</NavLink>
           </li>
         </ul>
@@ -39,10 +38,6 @@ function App() {
         <Route exact path="/about" element={<About />} />
         <Route exact path="/cars" element={<Cars />} />
       </Routes>
-
-      {/*<About />*/}
-
-      {/*<Cars />*/}
     </div>
   );
 }

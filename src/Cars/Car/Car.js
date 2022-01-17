@@ -2,7 +2,9 @@ import React from 'react'
 import './Car.scss'
 
 
-const Car = props => {
+const Car = (props) => {
+  console.log(props);
+
   return (
     <div className={'Car'}>
       <h3>Название машины: {props.name}</h3>
