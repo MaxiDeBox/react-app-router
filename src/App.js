@@ -2,7 +2,8 @@ import React from 'react'
 import './App.scss'
 import About from './About/About'
 import Cars from './Cars/Cars'
-import {Route, Routes, NavLink} from "react-router-dom";
+import {Route, Routes, NavLink, Switch} from "react-router-dom";
+import CarDetail from "./CarDetail/CarDetail";
 
 function App() {
   return (
@@ -34,9 +35,10 @@ function App() {
 
       <hr/>
       <Routes>
-        <Route exact path="/" element={<h1>Home Page</h1>} />
-        <Route exact path="/about" element={<About />} />
-        <Route exact path="/cars" element={<Cars />} />
+        <Route path="/" element={<h1>Home Page</h1>} />
+        <Route path="/about" element={<About />} />
+        <Route path="/cars" element={<Cars />} />
+        <Route path="/cars/:name" element={<CarDetail />} />
       </Routes>
     </div>
   );
