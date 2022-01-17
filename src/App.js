@@ -2,7 +2,7 @@ import React from 'react'
 import './App.scss'
 import About from './About/About'
 import Cars from './Cars/Cars'
-import {Route, Routes, NavLink, Switch} from "react-router-dom";
+import {Route, Routes, NavLink, Switch, Redirect} from "react-router-dom";
 import CarDetail from "./CarDetail/CarDetail";
 
 function App() {
@@ -39,6 +39,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/cars" element={<Cars />} />
         <Route path="/cars/:name" element={<CarDetail />} />
+        <Route path='*' element={<h1>404 Not found</h1>} />
       </Routes>
     </div>
   );
